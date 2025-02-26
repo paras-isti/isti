@@ -3,19 +3,19 @@
 <head>
     <title>Security Monitoring</title>
     <script>
-        function changeFeed() {
-            var selectedFeed = document.getElementById("cameraSelect").value;
-            window.location.href = selectedFeed;
+        function changePage() {
+            var selectedPage = document.getElementById("pageSelect").value;
+            window.location.href = selectedPage;
         }
     </script>
 </head>
 <body>
-    <h1>Security Camera Feeds</h1>
-    <label for="cameraSelect">Select Camera:</label>
-    <select id="cameraSelect" onchange="changeFeed()">
+    <h1>Security Monitoring</h1>
+    <label for="pageSelect">Select Page:</label>
+    <select id="pageSelect" onchange="changePage()">
         <option value="/curfew">Curfew Movement Detector</option>
-        <option value="/fire_exit">Fire Exit Obstruction Detector</option>
         <option value="/fence">Fence Jump Detector</option>
+        <option value="/fexit">Fire Exit Obstruction Detector</option>
     </select>
 </body>
 </html>
