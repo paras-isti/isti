@@ -91,7 +91,7 @@ nav ul li a {
 }
 
 .nav-button, button {
-    background-color: #4CAF50;
+    background-color: #8d8f8d;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -100,14 +100,15 @@ nav ul li a {
     border-radius: 8px;
     transition: background 0.3s, transform 0.2s;
     text-align: center;
-    width: 280px;
+    width: 300px;
+    height: 80px;
     text-transform: uppercase;
     display: inline-block;
     margin: 10px;
 }
 
 .nav-button:hover, button:hover {
-    background-color: #45a049;
+    background-color: #4CAF50;
     transform: scale(1.05);
 }
 
