@@ -116,3 +116,7 @@ nav ul li a {
     background-color: #3e8e41;
     transform: scale(0.98);
 }
+
+.hidden {
+ display: none;
+}
