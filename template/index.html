@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Security Monitoring</title>
-    <script>
-        function changePage() {
-            var selectedPage = document.getElementById("pageSelect").value;
-            window.location.href = selectedPage;
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovative Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Security Monitoring</h1>
-    <label for="pageSelect">Select Page:</label>
-    <select id="pageSelect" onchange="changePage()">
-        <option value="/curfew">Curfew Movement Detector</option>
-        <option value="/fence">Fence Jump Detector</option>
-        <option value="/fexit">Fire Exit Obstruction Detector</option>
-    </select>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Company Logo">
+           
+        </div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            ☰
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#">Scenario 1</a></li>
+                <li><a href="#">Scenario 2</a></li>
+                <li><a href="#">Scenario 3</a></li>
+                <li><a href="#">Scenario 4</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    
+    </main>
 </body>
 </html>
