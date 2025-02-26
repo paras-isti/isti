@@ -14,26 +14,27 @@ function closeNote() {
 document.addEventListener("DOMContentLoaded", function () {
     let obstructionAlertShown = false;
     let alertSound = document.getElementById("alert-sound");
-    let alertBox = document.getElementById("alert-box"); // Ensure element is selected after DOM loads
-    let soundEnabled = false; // Initially, sound is disabled
+    let alertBox = document.getElementById("alert-box");
+    let soundEnabled = false; 
 
-    function enableSound() {
+    // ✅ Make enableSound globally accessible
+    window.enableSound = function () {
         soundEnabled = true;
         alert("🔊 Sound Alerts Enabled!");
-    }
+    };
 
     function checkForAlert() {
         fetch('/alert-status')
             .then(response => response.json())
             .then(data => {
                 if (data.obstruction) {
-                    alertBox.classList.remove('hidden'); // Show alert
+                    alertBox.classList.remove('hidden');
                     if (!obstructionAlertShown && soundEnabled) {
                         alertSound.play();
                     }
                     obstructionAlertShown = true;
                 } else {
-                    alertBox.classList.add('hidden'); // Hide alert
+                    alertBox.classList.add('hidden');
                     obstructionAlertShown = false;
                     alertSound.pause();
                     alertSound.currentTime = 0;
@@ -44,5 +45,5 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    setInterval(checkForAlert, 2000); // Check every 2 seconds
+    setInterval(checkForAlert, 2000);
 });
