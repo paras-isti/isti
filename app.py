@@ -1,6 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
+from fexit import fexit_bp  # Import the blueprint
 
 app = Flask(__name__)
+app.register_blueprint(fexit_bp)  # Register the blueprint
 
 @app.route('/')
 def index():
@@ -19,4 +21,4 @@ def fexit():
     return render_template('fexit.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
