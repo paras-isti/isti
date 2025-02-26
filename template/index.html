@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Monitoring</title>
+    <script>
+        function changeFeed() {
+            var selectedFeed = document.getElementById("cameraSelect").value;
+            window.location.href = selectedFeed;
+        }
+    </script>
+</head>
+<body>
+    <h1>Security Camera Feeds</h1>
+    <label for="cameraSelect">Select Camera:</label>
+    <select id="cameraSelect" onchange="changeFeed()">
+        <option value="/curfew">Curfew Movement Detector</option>
+        <option value="/fire_exit">Fire Exit Obstruction Detector</option>
+        <option value="/fence">Fence Jump Detector</option>
+    </select>
+</body>
+</html>
