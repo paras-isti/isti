@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.enableSound = function () {
         soundEnabled = true;
         alert("🔊 Sound Alerts Enabled!");
-    };
+    }
 
     function checkForAlert() {
         fetch('/alert-status')
@@ -46,4 +46,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setInterval(checkForAlert, 2000);
-});
+})
