@@ -18,7 +18,7 @@ def generate_frames():
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(gray, (5, 5), 0)
         roi = blurred[ROI_Y:ROI_Y + ROI_HEIGHT, ROI_X:ROI_X + ROI_WIDTH]
-        edges = cv2.Canny(roi, 50, 150)
+        edges = cv2.Canny(roi, 150, 150)
 
         detected = any(cv2.contourArea(c) > 500 for c in cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[0])
         obstruction_detected = detected

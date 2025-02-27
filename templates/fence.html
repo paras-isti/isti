@@ -8,7 +8,7 @@
     <script defer src="{{ url_for('static', filename='script.js') }}"></script> <!-- Load external JS -->
 </head>
 <body>
-    <h1>Live Obstruction Detection</h1>
+    <h1> Fence Intruder Detected </h1>
     
     <div class="video-container">
         <img src="{{ url_for('fexit_bp.video_feed') }}" alt="Live Video Feed">
@@ -16,7 +16,7 @@
     
     <button onclick="enableSound()">🔊 Enable Sound Alerts</button>
 
-    <div id="alert-box" class="hidden">⚠️ Obstruction Detected!</div>
+    <div id="alert-box" class="hidden">⚠️ Intruder Detected!</div>
 
     <audio id="alert-sound">
         <source src="{{ url_for('static', filename='alert.mp3') }}" type="audio/mpeg">
