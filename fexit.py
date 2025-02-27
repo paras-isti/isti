@@ -3,13 +3,15 @@ from flask import Blueprint, render_template, Response, jsonify
 
 fexit_bp = Blueprint('fexit_bp', __name__)
 
-camera = cv2.VideoCapture(0)
 obstruction_detected = False
 
-ROI_X, ROI_Y, ROI_WIDTH, ROI_HEIGHT = 200, 150, 300, 300
+# Define ROI for Fire Exit Detection
+ROI_X, ROI_Y, ROI_WIDTH, ROI_HEIGHT = 200, 150, 300, 300  # Fire Exit ROI
 
 def generate_frames():
     global obstruction_detected
+    camera = cv2.VideoCapture(0)  # Create a separate camera instance
+
     while True:
         success, frame = camera.read()
         if not success:
@@ -30,12 +32,14 @@ def generate_frames():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
 
+    camera.release()  # Release camera when done
+
 @fexit_bp.route('/fexit')
 def fexit():
     return render_template('fexit.html')
 
-@fexit_bp.route('/video_feed')
-def video_feed():
+@fexit_bp.route('/fexit/video_feed')
+def fexit_video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @fexit_bp.route('/alert-status')

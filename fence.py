@@ -3,14 +3,15 @@ from flask import Blueprint, render_template, Response, jsonify
 
 fence_bp = Blueprint('fence_bp', __name__)
 
-camera = cv2.VideoCapture(0)
 intruder_detected = False
 
-# Adjusted bounding box for fence detection
-ROI_X, ROI_Y, ROI_WIDTH, ROI_HEIGHT = 150, 50, 400, 200  # Change this for fence position
+# Define ROI for Fence Intruder Detection
+ROI_X, ROI_Y, ROI_WIDTH, ROI_HEIGHT = 100, 50, 400, 250  # Fence ROI
 
 def generate_frames():
     global intruder_detected
+    camera = cv2.VideoCapture(0)  # Create a separate camera instance
+
     while True:
         success, frame = camera.read()
         if not success:
@@ -31,12 +32,14 @@ def generate_frames():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
 
+    camera.release()  # Release camera when done
+
 @fence_bp.route('/fence')
 def fence():
     return render_template('fence.html')
 
-@fence_bp.route('/video_feed')
-def video_feed():
+@fence_bp.route('/fence/video_feed')
+def fence_video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @fence_bp.route('/alert-status')
