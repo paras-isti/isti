@@ -1,7 +1,10 @@
 from flask import Flask, render_template, redirect
 from fexit import fexit_bp  # Import the blueprint
+from fence import fence_bp  # Import fence blueprint
 
 app = Flask(__name__)
+
+app.register_blueprint(fence_bp)  # Register fence detection
 app.register_blueprint(fexit_bp)  # Register the blueprint
 
 @app.route('/')
