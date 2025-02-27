@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script defer src="{{ url_for('static', filename='script.js') }}"></script> <!-- Load external JS -->
 </head>
+<button onclick="window.location.href='/'">⬅️ Back to Main Page</button>
 <body>
     <h1>Live Obstruction Detection</h1>
     
@@ -17,6 +18,7 @@
     <button onclick="enableSound()">🔊 Enable Sound Alerts</button>
 
     <div id="alert-box" class="hidden">⚠️ Obstruction Detected!</div>
+   
 
     <audio id="alert-sound">
         <source src="{{ url_for('static', filename='alert.mp3') }}" type="audio/mpeg">
