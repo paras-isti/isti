@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curfew Hours</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script> <!-- Load external JS -->
+</head>
+<button onclick="window.location.href='/'">⬅️ Back to Main Page</button>
+<body>
+    <h1>Person Detected</h1>
+    
+    <div class="video-container">
+        <img src="{{ url_for('curfew_bp.curfew_video_feed') }}" alt="Live Curfew Video">
+    </div>
+    
+    <button onclick="enableSound()">🔊 Enable Sound Alerts</button>
+
+    <div id="alert-box" class="hidden">⚠️ Person Detected!</div>
+   
+
+    <audio id="alert-sound">
+        <source src="{{ url_for('static', filename='alert.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
