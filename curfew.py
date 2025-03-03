@@ -6,7 +6,7 @@ curfew_bp = Blueprint('curfew_bp', __name__)
 person_detected = False
 
 # Define ROI for Curfew
-ROI_X, ROI_Y, ROI_WIDTH, ROI_HEIGHT = 200, 150, 300, 300  # Curfew ROI
+ROI_X, ROI_Y, ROI_WIDTH, ROI_HEIGHT = 0, 0, 635, 475  # Curfew ROI
 
 def generate_frames():
     global person_detected
